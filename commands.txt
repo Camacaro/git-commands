@@ -1,0 +1,578 @@
+configuraciom
+-->git config --global user.name "NAME"
+-->git config --global user.email "NAME"
+-->git config --global -e
+-->git config --global -l
+
+--------------------------------------------------------------
+To set your global username/email configuration:
+--> git config --global user.name "FIRST_NAME LAST_NAME"
+
+Set your email address:
+--> git config --global user.email "MY_NAME@example.com"
+
+To set repository-specific username/email configuration:
+From the command line, change into the repository directory.
+
+Set your username:
+--> git config user.name "FIRST_NAME LAST_NAME"
+
+Set your email address:
+--> git config user.email "MY_NAME@example.com"
+--------------------------------------------------------------
+
+refusing to merge unrelated histories
+$ git pull origin master --allow-unrelated-histories
+
+para iniciar git en una carpeta 
+
+--> git init
+
+
+Borrar git
+$ rm -rf .git
+
+
+Clone los contenidos de un repositorio de GitHub (sin la carpeta en sí)
+$ git clone git@github:me/name.git .
+
+
+
+para el estado en que se encuentra el git
+ 
+--> git status
+
+
+
+
+
+
+agregando archivo al repositorio
+ 
+--> git add name_file.type o git add . (envia todos los archivos con ese punto)
+
+
+
+
+
+
+guardar los cambios en la base de datos
+ 
+--> git commit -m "mensaje de descripcion de lo q guarde"
+
+
+
+
+
+
+USO DE RAMAS
+
+para ver todas las ramas
+ 
+--> git branch
+
+
+
+
+
+
+para crear una rama
+ 
+--> git branch name_rama
+
+
+
+
+
+
+para posicionarme en esa rama
+ 
+--> git checkout name_rama
+
+
+
+
+
+
+posicionarme y crear rama
+ 
+--> git checkout -b name_rama
+
+
+
+
+
+
+borrar rama 
+
+--> git branch -d name_rama
+
+
+
+
+
+
+esto sirve para ver los cambios hechos a un archivo, cuando esta en el stage y lo modifico puedo comparar esos dos estados
+$ git diff
+
+
+
+
+
+
+para unir las otras ramas con la mastes
+ 
+--> git merge --no-ff name_rama 
+
+(el --no-ff le pedimos que mantenga la estructura de nuestras ramas en el registro, así podremos movernos por nuestro repositorio más adelante con mayor facilidad.)
+
+
+
+
+
+
+hacer commit a todos los archivos nuevos y modificado 
+
+--> git commit -am "mensaje"
+
+(a:significa agregar m:especificar mensaje)
+
+
+
+
+
+
+
+
+
+
+Puedes volver a una revisión antigua usando checkout y pasando el hash del commit. 
+Por ejemplo:
+
+
+--> git checkout ab25f1ln2b4o3a9c4u1v6k4n1m7 .
+(No olvides el punto al final) 
+
+
+
+
+También puedes descartar cambios mediante reset pasándole el numero de commits.
+Por ejemplo, para descartar los últimos 3 commits:
+
+
+--> git reset --hard HEAD~3
+
+
+
+
+
+
+La diferencia entre checkout y reset es que en éste último se descartan las revisiones, mientras que con checkout se preservan.
+
+/**************************************/
+GIT TAG
+
+ver tag
+$ git tag
+$ git tag -n
+$ git show NAME_TAG 
+
+
+crear tag
+$ git tag NAME_TAG
+$ git tag -a V1.0.0 -m "MESSAGE"
+$ git tag -a V1.0.0 COMMIT_ESPECIFICO -m "MESSAGE"
+
+borrar tag
+$ git tag -d NAME_TAG
+
+subir tags al repositorio
+$ git push --tags
+
+Cambiar de rama a un tag especifico
+$ git checkout tags/<tag> -b <branch>
+Ejemplo:
+$ git checkout tags/v1.0 -b v1.0-branch
+
+Bajar los tags del repositorio
+$ git fetch --all --tags
+/*****************************/
+
+
+GIT STASH
+
+guardar cambios en progreso
+$ git stash
+$ git stash save "MENSAJE"
+
+ver trabajos en progreso
+$ git stash list
+
+recuperar trabajo del stash, obtengo el ultimo stash y elimino ese stash
+$ git stash pop
+
+borrar stash, borra la primera entrada de la lista en este caso el 0 de haber uno, stash@{0}
+$ git stash drop
+$ git stash drop stash@{1}
+
+restaurar un stash en especifico; stash@{1} --> es por elegir
+$ git stash apply stash@{1}
+
+/**************************************/
+
+GIT REMOTE
+/*
+ Al ultilizar 'https' te pedira la clave de acceso de la pagina y al utilizar 'git@' pedira clave ssh
+*/
+
+
+ver mis repositorios remoto
+--> git remote -v
+
+
+
+remover repositorio remoto
+--> git remote rm origin origin = name_remote
+
+
+
+agregar repositorio remoto
+--> git remote add origin git@github.com:repomio1/proj1.git
+
+cambiar URL del repositorio
+$ git remote set-url origin URL
+
+
+clonar repositorio de rama especifica
+-->git clone -b <branch> <remote_repo>
+-->git clone -b my-branch git@github.com:user/myproject.git
+
+
+
+ramas remotas
+https://mariogl.com/git-bajar-todas-las-nuevas-ramas-del-repositorio-remoto/
+-->git fetch
+-->git pull
+nos mostrará tanto las locales como las remotas:
+-->git branch -a
+se listaran de estemodo
+*  remotes/origin/HEAD -> origin/master
+*  remotes/origin/develop
+*  remotes/origin/master
+esas ramas remotas que vemos en el listado son copias locales de las ramas remotas.
+ Si queremos crear las correspondientes ramas locales, sólo tenemos que ir a cada una de las ramas con:
+-->git checkout NAME_RAMA (git checkout develop)
+nos muestra que ya tenemos todas las ramas en local
+-->git branch 
+
+
+/*****************************/
+				TIPS
+Cuando creo ramas en mi local estas tambien las puedo subir al repositorio remoto 
+
+/* paso a cualquier rama que este en el repositorio*/
+-->git checkout nameRama
+/actualizo esa rama respecto a mi local/
+-> git pull origin nameRama
+/Creo una nueva rama en mi local/
+->git checkout -b nombreDeLaRama
+/subo el proyecto a una nueva rama en el repositorio/
+->git push origin nombreDeLaRamaQueCree
+
+/************ SALIR DEL VIM *****************/
+forzará una salida incondicional sin guardar
+--> :q! 
+para ingresar al modo Insertar, escriba el mensaje de elección
+--> i o a
+para salir del modo Insertar
+--> ESC
+para guardar 
+-->:wq
+-->:x 
+-->ZZ 
+para salir sin guardar 
+-->:q! 
+-->ZQ
+/*****************************/
+
+/*******CONFLICTOS ENTRE RAMAS ***************/
+ 
+-->tenemos que elegir entre lo que está entre <<<<<<< HEAD y ======= que es contenido que tenemos en la rama donde estamos haciendo el merge (master)(entre esos dos es lo que YO hice) o entre ======= y >>>>>>> contenido donde están los cambios hechos en la rama que queremos unir (contenido)(esto es lo que estoy bajando del repositorio).
+
+-->Para ello arreglamos el archivo con los cambios elegidos, guardamos, agregamos y hacemos commit de lo cambios
+
+-->git commit -a
+
+y de esta manera logramos hacer merge con éxito.
+
+Otra manera para resolver los conflictos es que podemos indicarle de antemano a git que estrategia tomar cuando tiene que decidir un conflicto, esto con las opciones ours y theirs, de esta manera:
+-->git merge -s recursive -X theirs rama-a-fusionar
+Esto cuando queremos que git resuelva el conflicto usando los cambios de la rama a fusionar (theirs o suyos) y cuando queremos que tome los cambios de la rama donde se está fusionando (ours o nuestros): 
+-->git merge -s recursive -X ours rama-a-fusionar
+/*****************************/
+
+/******* ELIMINAR RAMA REMOTA ***************/
+-->$git push origin :nombre-rama
+-->$git push origin --delete NAME_RAMA 
+/*****************************/
+
+/******* clave SSH key ***************/
+--> cd /
+--> cd usr
+--> cd ~/.ssh (el ~ es Alt crtl+4) 
+--> ls
+--> cat id_rsa.pub
+/*****************************/
+
+/******************************
+* 			GIT FLOW							*
+*		Crear una rama de funcionalidad (feature branch)			*
+*											*
+*-->git chekout develop									*
+*											*
+/*actualizo mi develop local respecto al develop repositorio/				*
+*-> git pull origin develop								*
+*											*
+/*Creo rama en mi local y me posiciono/						*
+*-->git checkout -b feature/NAME-RAMA							*
+*
+/*subo el proyecto a una nueva rama en el repositorio/
+*->git push origin nombreDeLaRamaQueCree
+*
+/*Subir cambios a la rama feature desde la local feature/
+*-->git push --set-upstream origin feature/NAME-RAMA
+-------------------------------------------------------------------------------------
+*		Fusionar una rama de funcionalidad (merge feature branch)
+*											*
+/*Me paso a mi rama develop local/							*
+*--> git checkout develop								*
+*											*
+/*hago un pull o fetch(investigar) para estar actualizado/				*
+*--> git pull origin develop								*
+*											*
+/*Uno mi rama feature con mi rama develop local/					*
+*--> git merge --no-ff feature/nombre_de_funcionalidad					*
+*
+/*Borro mi rama local de feature/
+*--> git branch -d feature/nombre-de-funcionalidad
+*
+/*Subo los cambios al repositorio en la rama develop/
+*-->git push origin develop
+*
+/*Borro rama feature en el repositorio/
+*-->$git push origin :nombre-rama							*
+*											*
+-----------------------------------------------						*
+si es para reparar algo existente cambio feature a bugfix				*
+/******************************
+http://howto.gandasoftwarefactory.com/desarrollo-software/2016/como-gestionar-ramas-con-git-flow-20160718/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/****************************************/
+/****************************************/
+/*********		CURSO DE GIT COMANDOS 		******************/
+/****************************************/
+/****************************************/
+/****************************************/
+/****************************************/
+package para atom
+gist
+
+Comandos:
+Ver contenido de una carpetagi
+-->ls -al
+
+ver donde estoy
+--> pwd
+
+limpiar pantalla
+--> clear
+
+ir atras
+--> cd ../
+
+************************
+- (significa parametros de una sola letra)
+-- (significa palabra completa como parametro)
+
+GIT
+Veo la informacion del mi archivo config
+--> git config --global -e
+
+
+
+Iniciar repositorio, local
+--> git init
+
+
+
+STATUS
+muestra los archivos que no se han registrado(rojo), que estan modificados, o agregados
+-->git status
+(ver de forma corta, silince)
+--> git status -s
+(ver de forma corta y rama, b de branch)
+--> git status -s -b
+
+
+
+ADD Agregar archivo al escenario
+-->git add name_file.ext
+-->git add .
+	(Los agrega todos, con el pto al final)
+-->git add *.ext
+	(.ext se refiere a la extension, es para agregar todos los archivos que tengan en esa extension)
+-->git add carpeta/
+	(agrega todo el contenido que esta dentro de esa carpeta)
+Excluir cierto archivo al agregar
+-->git add -A
+-->git reset *.ext
+Otros para agregar archivos
+-->git add "*.txt"
+	(agrega todos los txt de TODO el proyecto)
+-->git add *.txt
+	(agrega todos los txt del directorio actual)
+-->git add --all
+	(agrega todos los archivos)
+-->git add <lista de archivos>
+	(agrega los archivos que listemos ej: index.html confi.xml se separan por espacio)
+-->git add pdfs/*.pdf
+	(agrega todos los PDFS dentro de la carpeta PDFs)
+-->git add pdfs/
+	(agrega todos los archivos dentro de la carpeta PDFs)
+
+
+
+COMMIT guarda los cambio de manera historico
+-->git commit
+-->git commit -m "mensaje"
+
+(agrego los archivos y hago el commit)
+-->git commit -am "mensaje"
+
+(actualizar el mensaje del ultimo commit que se hizo)
+-->git commit --amend -m "mensaje nuevo"
+(sin el -m me manda a la consola de mensaje)
+-->git commit --amend
+
+(de esta forma me sale la consola de mensaje, para agregar tecleo "a" y escribo mi mensaje, para salior tecleo "esc" y escribo ":wq")
+-->git commit
+
+
+
+LOG ver los commits hechos (de forma larga)
+--> git log
+ver cambios especificos
+$ git log --stat
+ver los commits hechos (de forma corta)
+--> git log --oneline
+(esa linea de codigo dice que los log lo ponga en una linea y los decore todos con asterico)
+--> git log --oneline --decorate --all --graph
+
+
+AGREGANDO ALIAS DE MANERA GLOBAL
+-->git config --global aias.NAME_ALIAS "COMANDOS"
+Configutafo
+ git config --global alias.lg "log --oneline --decorate --all --graph"
+ git config --global alias.s "status -s -b"
+ git config --global alias.cm "commit -m"
+ git config --global alias.cam "commit -am"
+ git config --global alias.c "checkout"
+ git config --global alias.cb "checkout -b"
+
+
+
+
+CONFIG
+(ver todas mis configuraciones modo escritura)
+--> git config --global -e
+(ver todas mis configuraciones modo lectura)
+--> git config --global -l
+
+
+
+
+DIFF (VER CAMBIOS)
+(veo los cambios entre un commit y el archivo que tengo editando y guardando)
+--> git diff
+(veo los cambios entre un commit y el archivo mandado al escenario)
+--> git diff --staged
+Deshacer los cambios a un archivo que salve respecto a su commit
+-->git checkout -- NAME_FILE.EXT
+
+
+
+RESET 
+(sacar archivo del escenario, HEAD apunta al ultimo commit que hicimos)
+-->git reset HEAD readme.md
+
+(deshago el commit anterior al ultimo)
+-->git reset --soft HEAD^ 
+
+
+viajo al commit, manteniendo los cambios del arbol de trabajo y el archivo en ese commit, si modifique el archivo donde hice el commit dejara los cambios)
+-->git reset --soft hash del commit
+
+(viajar hacia un commit predeterminado, dejando los cambios que existen en el arbol del trabajo, solo reinicia los archivos de ese commit, o sea vere el archivo como lo deje en ese commit, el resto de carpetas qeu esten modificadas se mantendran)
+-->git reset --mixed hash del commit
+
+(viajar hacia un commit, reinicia todo el arbol del trabajo y los archivos de ese commit, lo vere tal cual lo deje)
+-->git reset --hard hash del commit
+
+
+
+REFLOG
+(veo todo el historial así haya hecho reset)
+--> git reflog
+
+
+
+RENOMBRAR ARCHIVO CON GIT
+-->git mv OLD_NAME_FILE.ext NEW_NAME_FILE.ext
+-->git commit
+
+BORRAR ARCHIVO CON GIT
+-->git rm NAME_FILE.ext
+sacar archivo del stage
+$ git rm --cached NAME_FILE.ext
+-->git commit
+
+IGNORANDO ARCHIVOS CON GIT	
+-->se crea un archivo con el nombre '.gitignore'
+-->por cada linea se agrega los archivos o carpetas a ignorar
+(ignora todos los archivos .log)
+-->*.log
+(ignora cierta carpeta)
+-->NAME_FOLDER/
+
+
+RECONSTRUIR COMMIT
+Reescontruir el proyecto como estaba en ese preciso momento del commit
+-->git checkout -- .
+
+RAMAS
+(ver ramas)
+-->git branch
+(crear rama)
+-->git branch NAME_RAMA
+
+:q (con "q" salgo)
+
+
+No need to delete it.
+From your new local repo, simply:
+$ git push --force -u origin master
+That will replace the history of your BitBucket master branch by the new one you have done locally.
+Now, if you had pushed other branches before, you might want to delete them.
+$ git push origin :oldBranch
