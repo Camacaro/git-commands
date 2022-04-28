@@ -576,3 +576,7 @@ $ git push --force -u origin master
 That will replace the history of your BitBucket master branch by the new one you have done locally.
 Now, if you had pushed other branches before, you might want to delete them.
 $ git push origin :oldBranch
+
+Revertir un git pull, Cuando te des cuenta que bajo muchos cambios
+y hay conflicto puedes revertir eso con el siguiente comando:
+$ git reset --hard HEAD 
