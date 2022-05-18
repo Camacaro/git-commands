@@ -1,0 +1,76 @@
+La idea es que la rama feature siempre se encuentre delante 
+de master si por alguna razon avanza master y tu branch feature 
+se queda atras de master es hora de usar algunos de esos comandos: 
+$ git rebase origin/main
+$ git rebase origin/master 
+$ git rebase main
+Esto nos servira para que el historial de master quede detras de 
+la rama feature.
+
+Ejemplo:
+Nos encontramos en hotfix haciendo unos cambios: 
+
+| * dd53578 (HEAD -> hotfix) add Dog
+| * f3d7e09 add coment
+|/  
+| * d78e60d (develop) add Employee
+| * 99ccaa5 add comment
+|/  
+* 108146a Add animal!
+* 55b8a27 add directions
+* c935de9 add age to person
+* 5aa60f1 add Person
+* 87ac918 init
+
+Pero hubo unos cambios en master ahora se ve esta manera:
+
+* 54aff0a (main) add direction Stringer
+* 0b99c42 add func Stringer
+* b11d31c add cat
+| * dd53578 (HEAD -> hotfix) add Dog
+| * f3d7e09 add coment
+|/  
+| * d78e60d (develop) add Employee
+| * 99ccaa5 add comment
+|/  
+* 108146a Add animal!
+* 55b8a27 add directions
+* c935de9 add age to person
+* 5aa60f1 add Person
+* 87ac918 init
+
+Al aplicar el rebase los cambios que estan adelante del hotfix 
+ahora se pondrán detrás de él de esta manera quedara como si 
+esta rama se fuera sacado con esos cambios 
+
+* 27e1f84 (HEAD -> hotfix) resolve conflic of animals
+* ee896f3 add coment
+* 54aff0a (main) add direction Stringer
+* 0b99c42 add func Stringer
+* b11d31c add cat
+| * d78e60d (develop) add Employee
+| * 99ccaa5 add comment
+|/  
+* 108146a Add animal!
+* 55b8a27 add directions
+* c935de9 add age to person
+* 5aa60f1 add Person
+* 87ac918 init
+
+Tengo que estar pendiente de los conflictos de ser asi 
+tengo que arreglarlo y luego solo tengo que usar:
+1. $ git add 
+2. $ git rebase --continue
+porque se queda en una rama commit temporal luego de usar el 
+rebase se actualiza la rama.
+
+
+===========================================================================
+Replicar Ejemplo
+1. Crear una rama a partir de main
+2. Hacer varios commits en la nueva rama 
+3. Volver a main y hacer unos cuantos commits 
+4. Luego con git log, podremos ver que la nueva rama se encuentra atras de main
+5. lanzamos el comando git rebase main (Estando en la nueva rama)
+  Esto nos actualizar el tree de git poniendo todos los cambios de main 
+  detras de la nueva rama
