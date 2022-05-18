@@ -1,0 +1,22 @@
+
+A.- Has realizado un commit que todavía no has subido al repositorio.
+  Es decir realizando tu tarea has realizado un commit, 
+  pero no has hecho push al repositorio, por tanto sigue 
+  estando en tu repositorio local. Para ello utilizaremos 
+  el comando: $ git commit --amend
+
+1. Vamos hasta nuestro repositorio que contiene el commit que queremos modificar.
+2. Escribimos git commit --amend y pulsamos Enter.
+3. Se abre un editor de texto donde podrás modificar el mensaje del commit, y después deberemos guardar y cerrar.
+
+B.- Has realizado un commit que ya has subido al repositorio.
+1. Deberemos seguir los tres pasos anteriores del caso A.
+2. Deberemos forzar un push para que sobreescriba el anterior commit, con el comando:
+  $ git push --force 
+
+Terminal
+Salir y guardar
+$ :wq
+
+Salir sin guardar
+$ :aq
