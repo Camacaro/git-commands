@@ -1,0 +1,54 @@
+Practicar squash git
+
+Esto nos sirve cuando tenemos varios commits sobre una funcionalidad, 
+ejemplo se nos mando hacer un feature y hacemos el PR pero resulta que 
+nos hicieron varios comnetarios por lo cual se corrige y se hace otro 
+commit, y se repita la misma situacion por lo que ahora tenemos N commits 
+de fix sobre la misma funcionalidad. La idea es unir esos commits con el
+principal.
+
+Esto es para unir commits estando en una rama. 
+
+Ejemplo:
+1. En la rama develop (o crear una nueva)
+2. Hacer la funcionalidad principal 
+3. Agregar correcciones a esa funcionalidad (simular que te lo mandaron a corregir)
+4. Hacer un rebase interactivo 
+  $ git rebase -i [your hash]
+  [your hash]: Este debe ser un commit anterior al que quiero mantener:
+  Esto desplegara un menu para poder elegir cuales seran los commits que se 
+  combinaran con el principal, para editar presionar la "s". 
+  p: (Pick) para mantener
+  s: (squash) para fusionar con el que se va a mantener 
+
+Ejemplo practico: 
+Quiero unir los commit 1667105, d6158b8, a9ec4a5 y unirlos (mantener) el 1985752
+entonces debo tomar el commit (hash) bdcb240 para hacer el rebase interactivo
+
+$ git rebase -i bdcb240
+
+Historial git:
+* 1667105 (HEAD -> develop) comment 3 - mostrar nombre de persona
+* d6158b8 comment 2 - receiber func
+* a9ec4a5 comment 1 - poner publico
+* 1985752 add func persona
+* bdcb240 develop comment 2
+* ae6c824 (main) add Model to android
+* 36472b9 add Android
+* 4cf08f3 main add person
+* 9886439 main 1 comment
+* ba61bde init
+
+Menu al ejecutar el rebase interactivo, se mostrara del viejo al nuevo:
+pick 1985752 add func persona
+s a9ec4a5 comment 1 - poner publico
+s d6158b8 comment 2 - receiber func
+s comment 3 - mostrar nombre de persona
+
+Mac:
+Entrar en el menu y editar
+Presionar "s"
+Para guardar y salir ejecuatar
+$ :wq 
+Para Salir sin guardar
+$ :aq
