@@ -1,0 +1,69 @@
+
+https://luisburgosv.medium.com/cómo-usar-git-cherry-pick-sin-morir-en-el-intento-fab92ba1ee7b
+
+la rama strategicpartners se encuentra por delante de mi rama brl-753
+y necesito pasar los cambios de la brl-753 a la strategicpartners sin hacer merge 
+
+Cuando me encuentro en otra rama y necesito traerme los cambios especifico de un 
+commit puedo hacerlo con 'git cherry-pick HASH_COMMIT' de esa forma lo puedo unir con
+como si fuera un rebase, tener en cuenta que antes de hacer eso debo unificar los commits
+con squeash
+
+| * b0057223 (HEAD -> strategicpartners, origin/strategicpartners) brl-473 <<<<<<<<<----
+| * 37c9f063 brl-558
+| * 47ba8544 brl-627
+| * f08664ab brl-658
+| * ec42ef59 brl-552
+| * e564395e brl-445
+| * 31486ac5 brl-473
+| * 56d66599 brl-444
+| * 0dfbc0b2 brl-443
+| * 21290093 brl-402-403-404-405-406-407
+| * db8c4c5e brl-295-296-297-348 remove fsl folders from SPs
+| * 325dcbc7 brl-295-296-297-348-refresh
+| * 57fded6e brl-295-296-297-348 nationwide
+| * 2eb6a8fe brl-295-296-297-brl-348 With Conf
+| * e1b0c9e2 brl-295-296-297 symetra
+| * cf977631 brl-295-296-297 voya
+| | * 91d23204 (origin/master, origin/HEAD, master) brl-900
+| | * 3eafb81d hotfix-readmecontributing
+| |/  
+| * 960f09a4 brl-855
+| * 5106b689 hotfix-failchargesmissinginmigra
+| | *   715c776c (refs/stash) WIP on brl-570-571: 7534c9a9 brl-570-571 semantic refactoring
+| | |\  
+| | | * 5029d2fd index on brl-570-571: 7534c9a9 brl-570-571 semantic refactoring
+| | |/  
+| | * 7534c9a9 (origin/brl-570-571, brl-570-571) brl-570-571 semantic refactoring
+| | * a28a9354 brl-570-571 With Sql
+| |/  
+| * 815a37f0 hotfix-eruseraccountstripe
+| * eb1ed027 hotfix-eruseraccountstripe
+| * ccbfbb99 brl-238-hotfix
+| * 1639d251 brl-606
+| * c991c786 hotfix-cleanup
+| * 285c00be hotfix-postenrollmentnotificationemail
+| * 26b3f6aa brl-775
+| * 2294d2db hotfix-sfwsnewline
+| * b09cc33f brl-238 With conf, With SQL
+|/  
+* 09dbfaa0 brl-773
+* 2d63f92d brl-768
+| * da72e5e0 (origin/brl-570-571-574, brl-570-571-574-bkp) brl-570-571-574 read CSV for new schema
+| * 0414941c (brl-570-571-bkp) brl-570-571 refactor func and struct names
+| * f3cdca8a brl-570-571 uniques
+| * 7f96b69d brl-570 With Sql new schema it'll replace codex
+| | * e1daccaf (origin/nationwide/qa-platform, nationwide/qa-platform) brl-739
+| | * b7ef546e brl-628 fixes
+| | * 2feb90e0 brl-443 fixes
+| | * 4ef262ad brl-443 fix re-send the link style
+| | * 31c927da brl-443 fix emails let us know
+| | * 9229cc0b brl-626 add footer to settings screen
+| | * edb3f370 Revert "brl-626 add footer to settings screen"
+| | * e1f561cf Revert "only for developing dont commit"
+| | * e534959f brl-626 add footer to settings screen
+| | * 552b5902 only for developing dont commit
+| | * 60d359df brl-633
+| | * 31f79628 (origin/brl-753, brl-753) brl-753 remove Texas state             <<<<<<<<<----
+
+
