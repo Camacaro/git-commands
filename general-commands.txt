@@ -577,6 +577,32 @@ That will replace the history of your BitBucket master branch by the new one you
 Now, if you had pushed other branches before, you might want to delete them.
 $ git push origin :oldBranch
 
-Revertir un git pull, Cuando te des cuenta que bajo muchos cambios
-y hay conflicto puedes revertir eso con el siguiente comando:
+
+================================================================
+================ Trabajar con Rebase * BRELLA * ================
+================================================================
+Revertir un git pull, Cuando te des cuenta que bajo muchos cambios 
+y hay desamiados conflicto puedes revertir eso con el siguiente comando:
 $ git reset --hard HEAD 
+
+Bajar los cambios sin usar merge
+$ git pull --rebase origin BRANCH
+
+Reiniciar archivo 
+$ git checkout HEAD -- My_File.ext
+
+squash
+[your hash]: Este debe ser un commit anterior al que quiero mantener
+p: (Pick) para mantener
+s: (squash) para fusionar con el que se va a mantener 
+$ git rebase -i [your hash]
+
+Rename commit
+$ git commit --amend
+
+Rebase
+$ git rebase origin/master 
+
+Cherry Pick
+$ git cherry-pick HASH_COMMIT
+================================================================
