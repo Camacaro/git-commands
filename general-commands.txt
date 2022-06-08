@@ -196,6 +196,9 @@ $ git checkout tags/v1.0 -b v1.0-branch
 
 Bajar los tags del repositorio
 $ git fetch --all --tags
+
+Crear rama apartir de un tag 
+git checkout tags/<TAG Name> -b <New Branch Name>
 /*****************************/
 
 
