@@ -591,6 +591,9 @@ $ git pull --rebase origin BRANCH
 Reiniciar archivo 
 $ git checkout HEAD -- My_File.ext
 
+to undo a git add, sacar archivo del escenario, HEAD apunta al ultimo commit que hicimos
+$ git reset HEAD file
+
 squash
 [your hash]: Este debe ser un commit anterior al que quiero mantener
 p: (Pick) para mantener
