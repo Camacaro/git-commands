@@ -487,7 +487,8 @@ ver los commits hechos (de forma corta)
 AGREGANDO ALIAS DE MANERA GLOBAL
 -->git config --global aias.NAME_ALIAS "COMANDOS"
 Configutafo
- git config --global alias.lg "log --oneline --decorate --all --graph"
+ git config --global alias.lg  "log --oneline --decorate"
+ git config --global alias.lga "log --oneline --decorate --all --graph"
  git config --global alias.s "status -s -b"
  git config --global alias.cm "commit -m"
  git config --global alias.cam "commit -am"
