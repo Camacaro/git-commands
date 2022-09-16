@@ -582,6 +582,10 @@ Now, if you had pushed other branches before, you might want to delete them.
 $ git push origin :oldBranch
 
 
+Buscar una rama por su nombre
+$ git branch --all | grep <name>
+
+
 ================================================================
 ================ Trabajar con Rebase * BRELLA * ================
 ================================================================
