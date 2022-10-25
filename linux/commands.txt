@@ -1,0 +1,80 @@
+MANEJO DE LINUX COMANDOS
+
+Me dice donde estoy ubicado en el directorio
+$ pwd
+
+Hacer refencia a mi directorio actual
+$ echo ${PWD}
+
+Me muestra los archivos que esten en el directorio donde estoy ubicado
+$ ls 
+
+Me muestra los archivos que esten en el directorio donde estoy ubicado de forma descriptiva
+$ LS -lh 
+
+Me posiciona a un directorio 
+$ cD
+
+Dar todos los permisos a un archivo
+$ chmod 777 name_file.ext
+
+Dar permisos a carpetas y subcarpetas
+$ chmod -R 777 ./nombre_carpeta
+
+Dar todos los permisos a todos los archivos dentro 
+$ chmod 777 name_file.ext
+
+Borrar de manera recursiva y lanzar un segundo comando 
+$ rm -rf node_modules && npm install
+
+Borrar archivos y carpetas en mi posicion de manera forzada
+$ rm * -Rf
+
+VER FICHEROS
+Salen pantallasos de contenido
+$ cat PATH
+
+Sale una pantalla y con espacio sigo viendo el contenido
+$ more PATH
+
+Permite moverse hacia delante y hacia atrás utilizando los cursores o las teclas de “AvPág” y “RePág”.
+$ less PATH
+
+Los comandos head y tail permiten mostrar de forma parcial el contenido de un fichero. Como su nombre indica, head muestra las primeras líneas del fichero (la cabecera) y tail muestra las últimas líneas (la cola). Por defecto, tanto head como tail muestran 10 líneas, pero eso se puede cambiar con la opción -n.
+$ tail PATH
+$ head PATH
+
+/******************************************/
+EDITAR VI
+
+VI es un editor de texto que puede editar la mayoría de archivos bajo la arquitectura de Linux (archivos de texto, php, etc.).
+
+Para abrir un archivo en el editor VI, escriba lo siguiente:
+$ vi NombreArchivo
+
+Para un archivo llamado test.txt, sería:
+$ vi test.txt
+
+Una vez que el archivo se abre, presione la tecla "insert" en su teclado para entrar en el modo edición.
+
+La tecla "Esc" le permitirá salir del modo edición, pero no del editor VI.
+
+Aquí hay una lista de los comandos usados más frecuentemente, necesarios para utilizar el editor VI:
+
+:q! : Fuerza al editor a salir sin guardar.
+:w : Guarda los cambios que han sido realizados al archivo.
+:wq : Guarda los cambios que han sido realizados al archivo y luego sale.
+:# : Donde # es un número – Le lleva a la línea número #.
+:$ : Le lleva a la última línea del archivo.
+:0 : Le lleva a la primera línea del archivo.
+:/word : Esto buscará la cadena "word" en el archivo. Presionando "n" usted puede ver el resultado de otra búsqueda
+/******************************************/
+
+Para ver los procesos en ejecución abrimos un terminal y escribimos lo siguiente:
+$ ps -ef
+
+Detener un proceso en linux
+$ kill PID
+
+Crear un zip
+$ zip folder_name.zip folder_content/
