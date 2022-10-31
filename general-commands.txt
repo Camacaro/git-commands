@@ -585,6 +585,9 @@ $ git push origin :oldBranch
 Buscar una rama por su nombre
 $ git branch --all | grep <name>
 
+Buscar todas las ramas por un usuario
+$ git for-each-ref --sort=committerdate --format='%(committerdate) %09 %(authorname) %09 %(refname)' | grep "Camacaro"
+
 
 ================================================================
 ================ Trabajar con Rebase * BRELLA * ================
