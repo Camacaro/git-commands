@@ -1,0 +1,50 @@
+
+chequear si un commit está en master (o en algun branch remoto).
+Tienen que haber fetcheado, sino pueden descomentar las líneas del fetch, lo que pasa es que tarda.
+
+function bfind() {
+  GREEN="\e[32m"
+  ENDCOLOR="\e[0m"
+  BRANCH="origin/master" # Default branch
+
+  function bfindHelp () {
+    echo "${GREEN}Searches if a brl-# commit exists in ${BRANCH}."
+    echo "Usage:${ENDCOLOR}"
+    echo "  bfind 1234 [branch?]"
+    echo
+  }
+
+  if [[ "$#" -eq "0" ]] ; then
+    bfindHelp
+    return
+  fi
+
+  if [ ! -z "$2" ] ; then
+    BRANCH="origin/$2"
+  fi
+
+  echo "${GREEN}Searching for brl-$1 in ${BRANCH}...${ENDCOLOR}"
+
+  # echo "${GREEN}Git fetch...${ENDCOLOR}"
+  # git fetch
+
+  git log ${BRANCH} | grep -iE "brl.*?$1"
+
+  if ! [[ $(git log ${BRANCH} | grep -iE "brl.*?$1") ]]; then
+    echo "brl-$1 not found in ${BRANCH}."
+  fi
+
+  echo
+}
+
+Ejemplos de uso:
+➜  platform git:(brl-2155) bfind 1313
+Searching for brl-1313 in origin/master...
+    brl-1005 Added braces to prop to prevent conflict with brl-1313
+
+
+
+➜  platform git:(brl-2155) bfind 1313 qa-platform
+Searching for brl-1313 in origin/qa-platform...
+    brl-1313
+    brl-1005 Added braces to prop to prevent conflict with brl-1313
