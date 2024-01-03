@@ -620,3 +620,5 @@ $ git rebase origin/master
 Cherry Pick
 $ git cherry-pick HASH_COMMIT
 ================================================================
+
+Testing change online
