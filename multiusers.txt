@@ -1,0 +1,7 @@
+1. Create a config personal file with a ssh 
+
+Host *
+    IdentityFile ~/.ssh/id_rsa_personal
+
+2. set the path of the config file to the project 
+  $ git config core.sshCommand "ssh -F /dev/null -i ~/.ssh/personal_config"
