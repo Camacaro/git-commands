@@ -19,6 +19,9 @@ Set your username:
 
 Set your email address:
 --> git config user.email "MY_NAME@example.com"
+
+Check the user and email of repository-specific
+git config user.name && git config user.email
 --------------------------------------------------------------
 
 refusing to merge unrelated histories
