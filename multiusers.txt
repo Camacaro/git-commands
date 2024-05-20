@@ -5,3 +5,10 @@ Host *
 
 2. set the path of the config file to the project 
   $ git config core.sshCommand "ssh -F /dev/null -i ~/.ssh/personal_config"
+
+Ref:
+https://rusingh.com/use-a-different-ssh-key-permanently-for-a-specific-git-repo/
+
+Para eliminar una configuración global de Git, puedes usar el comando git config --global --unset. Aquí te dejo un ejemplo de cómo hacerlo:
+$ git config --global --unset user.email
+En este caso, se eliminará la configuración del correo electrónico del usuario a nivel global. Sustituye user.email por la clave de la configuración que deseas eliminar.
