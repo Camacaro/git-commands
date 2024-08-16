@@ -74,3 +74,16 @@ Replicar Ejemplo
 5. lanzamos el comando git rebase main (Estando en la nueva rama)
   Esto nos actualizar el tree de git poniendo todos los cambios de main 
   detras de la nueva rama
+
+
+===========================================================================
+Herramienta interactiva para hacer el rebase
+
+Instalacion
+$ brew install git-interactive-rebase-tool
+
+Configuracion global
+$ git config --global sequence.editor interactive-rebase-tool
+
+Configuracion local
+$ git config sequence.editor interactive-rebase-tool
