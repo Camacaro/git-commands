@@ -1,0 +1,2 @@
+Proceso al inicializar un nuevo proyecto personal en la pc
+$ git config core.hooksPath .git/hooks
