@@ -506,7 +506,7 @@ Configutafo
  git config --global alias.cp "cherry-pick"
  git config --global alias.ri "rebase -i"
  git config --global alias.conf "config --global -l"
- git config --global alias.poh "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+ git config --global alias.poh '!git push origin $(git rev-parse --abbrev-ref HEAD)'
  git config --global alias.rmb "branch -D"
  git config --global alias.rnb "branch -m"
  git config --global alias.cad "commit --amend"
