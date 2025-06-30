@@ -1,3 +1,4 @@
 Proceso al inicializar un nuevo proyecto personal en la pc
 $ git config core.hooksPath .git/hooks
 $ git config --unset user.signingkey
+$ git config --local commit.gpgsign false
