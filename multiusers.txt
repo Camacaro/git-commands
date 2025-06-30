@@ -12,3 +12,22 @@ https://rusingh.com/use-a-different-ssh-key-permanently-for-a-specific-git-repo/
 Para eliminar una configuración global de Git, puedes usar el comando git config --global --unset. Aquí te dejo un ejemplo de cómo hacerlo:
 $ git config --global --unset user.email
 En este caso, se eliminará la configuración del correo electrónico del usuario a nivel global. Sustituye user.email por la clave de la configuración que deseas eliminar.
+
+## Proceso de cero para un nuevo usuario
+1. Generar un nuevo par de claves SSH
+2. Crear un archivo de configuración personal_config
+    Host github.com-personal
+      HostName github.com
+      User git
+      IdentityFile ~/.ssh/id_rsa_personal
+      IdentitiesOnly yes
+      AddKeysToAgent yes
+      UseKeychain yes
+3. Agregar la clave SSH pub a la cuenta de GitHub
+4. abrir el archivo ~/.ssh/config y agregar el siguiente contenido:
+    Host *
+      IdentityFile ~/.ssh/id_rsa_personal
+5. Check connection to config file specific
+   ssh -F ~/.ssh/personal_config -T git@github.com-personal
+6. clona el proyecto
+    git clone git@github.com-personal:user/project-consumer.git
