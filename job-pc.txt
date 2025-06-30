@@ -2,3 +2,5 @@ Proceso al inicializar un nuevo proyecto personal en la pc
 $ git config core.hooksPath .git/hooks
 $ git config --unset user.signingkey
 $ git config --local commit.gpgsign false
+$ git config --local user.name "Your Name"
+$ git config --local user.email you@example.com
